@@ -116,7 +116,7 @@ th {
   width: 40px;
 }
 
-.add-btn {
+.add-btn, #submit-btn {
   padding: 6px 10px;
   background: #6ab04c;
   color: #fff;
@@ -144,4 +144,13 @@ th {
   align-self: flex-end;
   font-size: 12px;
   cursor: pointer;
+}
+
+#submit-form > p {
+  display: grid;
+  grid-template-columns: auto auto;
+}
+
+#submit-btn {
+  float: right;
 }

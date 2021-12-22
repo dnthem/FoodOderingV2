@@ -109,7 +109,6 @@ class NewDish extends HTMLElement {
       console.error("error: No data found");
       return;
     }
-    console.log(data);
     this.shadowRoot.querySelector("article").innerHTML = `
     <div class="menu-item">
       <p class="food-name"></p>

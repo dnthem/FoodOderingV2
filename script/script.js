@@ -4,28 +4,53 @@ const order_tbl = document.getElementById("order-tbl");
 const menu = [
   {
     index: 0,
+    id: "bttron",
     name: "Bánh Tráng Trộn",
     price: 10,
   },
   {
     index: 1,
+    id: "btcuon",
     name: "Bánh Tráng Cuốn",
     price: 10,
   },
   {
     index: 2,
+    id: "btsate",
     name: "Bánh Tráng Sate",
     price: 7,
   },
   {
       index: 3,
-      name: "Trứng Nướng",
+      id : "trungNuong",
+      name: "Trứng Nướng (5 trứng/phần)",
       price: 7
+  },
+  {
+    index: 4,
+    id : "dauhu",
+    name: "Đậu Hũ Nước Dừa",
+    price: 7
+  },
+  {
+    index: 5,
+    id : "bapxao",
+    name: "Bắp Xào",
+    price: 10
   }
 ];
-var order_list = []; // Create empty oder_list arr
+let order_list = []; // Create empty oder_list arr
+let Total = 0;
+
+function calculateTotal(unit, quantity) {
+  Total += unit * quantity;
+}
 
 function updateOrderList() {
+  Total = 0;
+  console.log(order_list);
+   
+  if (order_list.length > 0) {
     order_tbl.innerHTML = `
     <tr>
         <th>#</th>
@@ -34,8 +59,6 @@ function updateOrderList() {
         <th>Action</th>
     </tr>
     `
-  if (order_list.length > 0) {
-   
     order_list.forEach((item, index) => {
       let tr = document.createElement("tr");
       let td1 = document.createElement("td");
@@ -45,7 +68,7 @@ function updateOrderList() {
       td1.innerText = index + 1;
       td2.innerText = menu[item.id].name;
       td3.innerText = item.quantity;
-      td4.innerHTML = `<i style="cursor: pointer">remove</i>`;
+      td4.innerHTML = `<i style="cursor: pointer; color:red;">remove</i>`;
       bindEvent(td4,index,deleteItem);
      
       tr.appendChild(td1);
@@ -54,12 +77,18 @@ function updateOrderList() {
       tr.appendChild(td4);
       order_tbl.appendChild(tr);
 
+      calculateTotal(menu[item.id].price, item.quantity);
+      order_tbl.nextElementSibling.innerText = `Total = $${Total}`;
     });
   } else {
+    order_tbl.innerHTML = "";
     let tr = document.createElement("tr");
     tr.innerHTML = `<td style="text-align: center">Your order list is empty</td>`;
     order_tbl.appendChild(tr);
+    order_tbl.nextElementSibling.innerText = "";
   }
+  
+
 }
 
 function bindEvent(td4,index,deleteItem) {
@@ -107,6 +136,16 @@ function bindDish() {
           });
       });
 }
+
+function clear() {
+  order_list = [];
+  Total = 0;
+  document.querySelector("#user-name").value = "";
+  document.querySelector("#user-phone").value = "";
+  document.querySelector("#pick-up-time").value = null;
+  document.querySelector("#user-note").value = "";
+  updateOrderList();
+}
 // Initialize
 function initApp() {
   populateMenu();
@@ -115,3 +154,5 @@ function initApp() {
 }
 
 window.addEventListener("load", initApp);
+
+export {order_list, Total, menu, clear};
