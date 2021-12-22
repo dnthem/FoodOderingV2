@@ -7,13 +7,14 @@
     <link rel="stylesheet" href="/style/style.css" />
     <script src="/script/script.js" type="module"></script>
     <script src="/script/items.js" type="module"></script>
+    <script src="/script/firebase-config.js" type="module"></script>
 </head>
 
 <body>
 
 
     <header>
-        <h1><i class="fa fa-cutlery" aria-hidden="true"></i>Bánh Tráng Tí Điệu</h1>
+        <h1><i class="fa fa-cutlery" aria-hidden="true">Bánh Tráng Tí Điệu</i></h1>
     </header>
     <main>
         <section id="menu">
@@ -23,14 +24,23 @@
             <h2>Order(s)</h2>
             <table id="order-tbl">
             </table>
+            <p style="text-align: right;"></p>
         </section>
         <section id="submit-form">
             <h2>Infomation</h2>
-            Name <input type="text" name="name">
-            Phone <input type="tel" name="phone">
-            <button id="submit">submit</button>
+            <p>Name <input id="user-name" type="text" name="name"></p>
+            <p>Phone <input id="user-phone" type="tel" name="phone"></p>
+            <p>Spectial Note <textarea id="user-note" rows="3" placeholder="Less spicy"></textarea>
+            <p>Estimate pick-up time <input id="pick-up-time" type="time" name="time"></p>
+            <p>Payment 
+                <span>
+                    <input type="radio" checked="true" id="cash" name="payment" value="cash"> <label for="cash">cash</label>
+                    <input type="radio" id="zelle" name="payment" value="zelle"> <label for="zelle">zelle</label>
+                    <input type="radio" id="vemmo" name="payment" value="vemmo"> <label for="vemmo">vemmo</label>
+                </span>
+            </p>
+            <button id="submit-btn">submit</button>
         </section>
     </main>
 </body>
-
 </html>
