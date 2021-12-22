@@ -87,8 +87,6 @@ function updateOrderList() {
     order_tbl.appendChild(tr);
     order_tbl.nextElementSibling.innerText = "";
   }
-  
-
 }
 
 function bindEvent(td4,index,deleteItem) {

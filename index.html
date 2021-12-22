@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>Bánh Tráng Tí Điệu</title>
+    <title>Bánh Tráng Tí Điệu (BETA)</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/style/style.css" />
     <script src="/script/script.js" type="module"></script>
@@ -11,8 +11,6 @@
 </head>
 
 <body>
-
-
     <header>
         <h1><i class="fa fa-cutlery" aria-hidden="true">Bánh Tráng Tí Điệu</i></h1>
     </header>
@@ -32,15 +30,16 @@
             <p>Phone <input id="user-phone" type="tel" name="phone"></p>
             <p>Spectial Note <textarea id="user-note" rows="3" placeholder="Less spicy"></textarea>
             <p>Estimate pick-up time <input id="pick-up-time" type="time" name="time"></p>
-            <p>Payment 
+            <p>Payment
                 <span>
-                    <input type="radio" checked="true" id="cash" name="payment" value="cash"> <label for="cash">cash</label>
-                    <input type="radio" id="zelle" name="payment" value="zelle"> <label for="zelle">zelle</label>
-                    <input type="radio" id="vemmo" name="payment" value="vemmo"> <label for="vemmo">vemmo</label>
+                    <input type="radio" checked="true" name="payment" value="cash"> <label for="cash">cash</label>
+                    <input type="radio" name="payment" value="zelle"> <label for="zelle">zelle</label>
+                    <input type="radio" name="payment" value="vemmo"> <label for="vemmo">vemmo</label>
                 </span>
             </p>
             <button id="submit-btn">submit</button>
         </section>
     </main>
 </body>
+
 </html>
