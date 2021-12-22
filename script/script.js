@@ -97,17 +97,20 @@ function populateMenu() {
     menu_container.appendChild(newItem);
   }
 }
+
+function bindDish() {
+    document.querySelectorAll("#menu > new-dish").forEach((dish) => {
+        dish.shadowRoot
+          .querySelector("article > div > button")
+          .addEventListener("click", (event) => {
+            addItem(event.target);
+          });
+      });
+}
 // Initialize
 function initApp() {
   populateMenu();
-  document.querySelectorAll("#menu > new-dish").forEach((dish) => {
-    dish.shadowRoot
-      .querySelector("article > div > button")
-      .addEventListener("click", (event) => {
-        addItem(event.target);
-      });
-  });
-
+  bindDish();
   updateOrderList();
 }
 

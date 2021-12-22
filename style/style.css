@@ -21,7 +21,7 @@
 
 body {
   margin: 0;
-  background: #eee url("http://source.unsplash.com/U9-D7wwurT8/1080x1920") 50% 35%/cover no-repeat padding-box padding-box local;
+  background: #eee url("https://scontent-lax3-1.xx.fbcdn.net/v/t31.18172-8/22384008_1294896077304928_5138967820025993052_o.jpg?_nc_cat=110&ccb=1-5&_nc_sid=e3f864&_nc_ohc=AlTFTJN8N4QAX_9b7X0&_nc_ht=scontent-lax3-1.xx&oh=00_AT_s59OTPNAO9Ac3-e0zddhXXyEZwrTegYZucwor9IvJiA&oe=61E8A3CB") 50% 35%/cover padding-box padding-box local;
   font-family: 'Open Sans', sans-serif;
   font-size: 14px;
   line-height: 21px;
@@ -30,8 +30,8 @@ body {
 h1 {
   margin: 0;
   padding: 21px;
-  background: #eb4d4b;
-  color: #fff;
+  background:#fcd92d;
+  color: black;
   font-family: 'Dancing Script', cursive;
   font-size: 59px;
   line-height: 63px;
@@ -66,7 +66,6 @@ section {
 #order-list {
   display: flex;
   flex-direction: column;
-  margin-right: 0;
 }
 
 table {
