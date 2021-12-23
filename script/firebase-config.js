@@ -27,8 +27,12 @@ function fillOrderObject () {
     let pickUpTime = document.querySelector("#pick-up-time");
     let payment = document.getElementsByName("payment");
     let userNote = document.getElementById("user-note");
+    let userName = document.querySelector("#user-name");
+    let userPhone = document.querySelector("#user-phone");
 
     let result = {};
+    result["userName"] = userName.value;
+    result["userPhone"] = userPhone.value;
     order_list.forEach((item) => {
         result[menu[item.id].id] = item.quantity;
     })
@@ -42,6 +46,8 @@ function fillOrderObject () {
     }
     if (userNote.value != "")
         result["note"] = userNote.value;
+
+    result["status"] = false;
     return result;
 }
 
