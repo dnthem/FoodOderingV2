@@ -146,6 +146,15 @@ function clear() {
 }
 // Initialize
 function initApp() {
+  let uid = sessionStorage.getItem("userID");
+  if (uid == null) {
+    window.location.href = "Access denied";
+  }
+  else 
+  {
+    document.querySelector("#user-name").value = sessionStorage.getItem("userName");
+  }
+
   populateMenu();
   bindDish();
   updateOrderList();
