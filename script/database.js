@@ -6,6 +6,9 @@ const db = getDatabase(app);
 // Declare database tables
 
 
+/**
+* Fill the order object with necessary data
+*/
 function fillOrderObject () {
     let pickUpTime = document.querySelector("#pick-up-time");
     let payment = document.getElementsByName("payment");
@@ -48,6 +51,9 @@ function validateValue (userName, userPhone) {
     return !regName.test(userName) && !regPhone.test(userPhone);
 }
 
+/**
+* Store order to databse when submit button is clicked
+*/
 function submitOrder () {
     let userName = document.querySelector("#user-name");
     let userPhone = document.querySelector("#user-phone");
