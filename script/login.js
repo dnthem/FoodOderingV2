@@ -13,6 +13,10 @@ const auth = getAuth(app);
 const ggProvider = new GoogleAuthProvider(app);
 // from Google
 document.querySelector("#login-w-gg").addEventListener("click", () => {
+  let uid = sessionStorage.getItem("userID");
+  if (uid != null) {
+    window.location.href = `home.html`;
+  }
   signInWithPopup(auth, ggProvider)
     .then((result) => {
       // This gives you a Google Access Token. You can use it to access the Google API.
@@ -89,10 +93,7 @@ document.querySelector("#login-box-link").onclick = function () {
 };
 
 function init() {
-  let uid = sessionStorage.getItem("userID");
-  if (uid != null) {
-    window.location.href = `home.html`;
-  }
+
 }
 
 window.addEventListener("load", init);
