@@ -1,12 +1,10 @@
-import { app } from "./firebase-config.js"
+import { app, ORDERS, USERS, USER_ORDERS } from "./firebase-config.js"
 import {clear, menu, order_list, Total} from "./script.js"
 import { getDatabase, ref, set, child, get, update, remove, push } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-database.js";
 
 const db = getDatabase(app);
 // Declare database tables
-const ORDERS = 'Orders';
-const USERS = 'Users';
-const USER_ORDERS = 'UserOrders';
+
 
 function fillOrderObject () {
     let pickUpTime = document.querySelector("#pick-up-time");

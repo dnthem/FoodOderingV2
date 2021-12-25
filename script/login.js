@@ -58,3 +58,13 @@ document.querySelector("#login-box-link").onclick = function() {
     document.querySelector("#login-box-link").classList.add("active");
     document.querySelector("#signup-box-link").classList.remove("active");
 };
+
+
+function init () {
+    let uid = sessionStorage.getItem("userID");
+    if (uid != null) {
+      window.location.href = `home.html`;
+    }
+}
+
+window.addEventListener("load", init);

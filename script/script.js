@@ -21,23 +21,23 @@ const menu = [
     price: 7,
   },
   {
-      index: 3,
-      id : "trungNuong",
-      name: "Trứng Nướng (5 trứng/phần)",
-      price: 7
+    index: 3,
+    id: "trungNuong",
+    name: "Trứng Nướng (5 trứng/phần)",
+    price: 7,
   },
   {
     index: 4,
-    id : "dauhu",
+    id: "dauhu",
     name: "Đậu Hũ Nước Dừa",
-    price: 7
+    price: 7,
   },
   {
     index: 5,
-    id : "bapxao",
+    id: "bapxao",
     name: "Bắp Xào",
-    price: 10
-  }
+    price: 10,
+  },
 ];
 let order_list = []; // Create empty oder_list arr
 let Total = 0;
@@ -49,7 +49,7 @@ function calculateTotal(unit, quantity) {
 function updateOrderList() {
   Total = 0;
   console.log(order_list);
-   
+
   if (order_list.length > 0) {
     order_tbl.innerHTML = `
     <tr>
@@ -58,19 +58,19 @@ function updateOrderList() {
         <th>Quantity</th>
         <th>Action</th>
     </tr>
-    `
+    `;
     order_list.forEach((item, index) => {
       let tr = document.createElement("tr");
       let td1 = document.createElement("td");
       let td2 = document.createElement("td");
       let td3 = document.createElement("td");
-      let td4 = document.createElement('td');
+      let td4 = document.createElement("td");
       td1.innerText = index + 1;
       td2.innerText = menu[item.id].name;
       td3.innerText = item.quantity;
       td4.innerHTML = `<i style="cursor: pointer; color:red;">remove</i>`;
-      bindEvent(td4,index,deleteItem);
-     
+      bindEvent(td4, index);
+
       tr.appendChild(td1);
       tr.appendChild(td2);
       tr.appendChild(td3);
@@ -89,10 +89,10 @@ function updateOrderList() {
   }
 }
 
-function bindEvent(td4,index,deleteItem) {
-    td4.addEventListener("click", () => {
-        deleteItem(index);
-    });
+function bindEvent(td4, index) {
+  td4.addEventListener("click", () => {
+    deleteItem(index);
+  });
 }
 
 function addItem(target) {
@@ -126,13 +126,13 @@ function populateMenu() {
 }
 
 function bindDish() {
-    document.querySelectorAll("#menu > new-dish").forEach((dish) => {
-        dish.shadowRoot
-          .querySelector("article > div > button")
-          .addEventListener("click", (event) => {
-            addItem(event.target);
-          });
+  document.querySelectorAll("#menu > new-dish").forEach((dish) => {
+    dish.shadowRoot
+      .querySelector("article > div > button")
+      .addEventListener("click", (event) => {
+        addItem(event.target);
       });
+  });
 }
 
 function clear() {
@@ -144,23 +144,28 @@ function clear() {
   document.querySelector("#user-note").value = "";
   updateOrderList();
 }
+
+function getDate () {
+  var today = new Date();
+  var dd = String(today.getDate()).padStart(2, "0");
+  var mm = String(today.getMonth() + 1).padStart(2, "0");
+  var yyyy = today.getFullYear();
+
+  return yyyy + "-" + mm + "-" + dd;
+}
+
 // Initialize
 function initApp() {
+  // User must sign in
   let uid = sessionStorage.getItem("userID");
   if (uid == null) {
     window.location.href = "Access denied";
-  }
-  else 
-  {
-    document.querySelector("#user-name").value = sessionStorage.getItem("userName");
+  } else {
+    document.querySelector("#user-name").value =
+      sessionStorage.getItem("userName");
   }
   
-  var today = new Date();
-  var dd = String(today.getDate()).padStart(2, '0');
-  var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
-  var yyyy = today.getFullYear();
-
-  document.querySelector("#pick-up-date").value =  yyyy + '-' + mm + '-' + dd;
+  document.querySelector("#pick-up-date").value = getDate();
 
   populateMenu();
   bindDish();
@@ -169,4 +174,4 @@ function initApp() {
 
 window.addEventListener("load", initApp);
 
-export {order_list, Total, menu, clear};
+export { order_list, Total, menu, clear };
