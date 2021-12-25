@@ -1,3 +1,4 @@
+import {initializeApp} from 'https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js'; 
  const firebaseConfig = { 
     apiKey:  'AIzaSyDGHmglcJ7m46GzjnGh5K_DoiDGSpUk0r8', 
     authDomain: 'firedata-35982.firebaseapp.com', 
@@ -10,4 +11,5 @@
 const ORDERS = 'Orders'; 
 const USERS = 'Users';
 const USER_ORDERS = 'UserOrders';
-export {firebaseConfig, ORDERS, USERS, USER_ORDERS};
+const app = initializeApp(firebaseConfig); 
+export { app, ORDERS, USERS, USER_ORDERS };
