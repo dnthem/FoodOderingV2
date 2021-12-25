@@ -148,7 +148,7 @@ th {
 
 #submit-form > p {
   display: grid;
-  grid-template-columns: auto auto;
+  grid-template-columns: auto 70%;
 }
 
 #submit-btn {
