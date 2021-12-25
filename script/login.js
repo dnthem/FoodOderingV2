@@ -1,3 +1,4 @@
+// js for login functionality 
 import { app } from "./firebase-config.js"
 import { getAuth, GoogleAuthProvider, FacebookAuthProvider, signInWithPopup} from "https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js";
 
@@ -44,7 +45,7 @@ function login (provider) {
     });
 }
 
-
+// transitions for login and sign up
 document.querySelector(".email-signup").classList.add("hidden");
 document.querySelector("#signup-box-link").onclick = function() {
     document.querySelector(".email-login").classList.add("hidden");
