@@ -1,3 +1,5 @@
+// This file contains instructions to store data to database - home.html
+
 import { app } from "./firebase-config.js"
 import {clear, menu, order_list, Total} from "./script.js"
 import { getDatabase, ref, set, child, get, update, remove, push } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-database.js";
@@ -8,6 +10,9 @@ const ORDERS = 'Orders';
 const USERS = 'Users';
 const USER_ORDERS = 'UserOrders';
 
+/**
+* Fill the order object with necessary data
+*/
 function fillOrderObject () {
     let pickUpTime = document.querySelector("#pick-up-time");
     let payment = document.getElementsByName("payment");
@@ -50,6 +55,9 @@ function validateValue (userName, userPhone) {
     return !regName.test(userName) && !regPhone.test(userPhone);
 }
 
+/**
+* Store order to databse when submit button is clicked
+*/
 function submitOrder () {
     let userName = document.querySelector("#user-name");
     let userPhone = document.querySelector("#user-phone");
