@@ -40,7 +40,7 @@ document.querySelector("#login-w-gg").addEventListener("click", () => {
     });
 });
 
-const fbProvider = new FacebookAuthProvider();
+//const fbProvider = new FacebookAuthProvider();
 // from facebook
 document.querySelector("#login-w-fb").addEventListener("click", () => {
   alert("This function is temporay unavaiable");
@@ -48,7 +48,7 @@ document.querySelector("#login-w-fb").addEventListener("click", () => {
   //login(fbProvider);
 });
 
-document.querySelector("#login-ano").addEventListener("click", () => {
+//document.querySelector("#login-ano").addEventListener("click", () => {
 //   signInAnonymously(auth)
 //     .then(() => {
 //       // Signed in..
@@ -71,7 +71,7 @@ document.querySelector("#login-ano").addEventListener("click", () => {
 //           // ...
 //         }
 //       });
-});
+//});
 
 // transitions for login and sign up
 document.querySelector(".email-signup").classList.add("hidden");
