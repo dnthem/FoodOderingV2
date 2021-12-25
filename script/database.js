@@ -1,9 +1,11 @@
-import { app, ORDERS, USERS, USER_ORDERS } from "./firebase-config.js"
+
+import { firebaseConfig, ORDERS, USERS, USER_ORDERS } from "./firebase-config.js"
 import {clear, menu, order_list, Total} from "./script.js"
+import {initializeApp} from 'https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js'; 
 import { getDatabase, ref, set, child, get, update, remove, push } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-database.js";
 
+const app = initializeApp(firebaseConfig); 
 const db = getDatabase(app);
-// Declare database tables
 
 
 /**
