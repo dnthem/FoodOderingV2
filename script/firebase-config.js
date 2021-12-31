@@ -1,6 +1,6 @@
 import {initializeApp} from 'https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js'; 
  const firebaseConfig = { 
-    apiKey:  process.env.API_KEY, 
+    apiKey:  'AIzaSyDGHmglcJ7m46GzjnGh5K_DoiDGSpUk0r8', 
     authDomain: 'firedata-35982.firebaseapp.com', 
     projectId: 'firedata-35982', 
     storageBucket: 'firedata-35982.appspot.com',
