@@ -42,13 +42,34 @@ const menu = [
 let order_list = []; // Create empty oder_list arr
 let Total = 0;
 
+let constraints = {};
+
+
+function setConstaints (val) {
+  constraints = val;
+  console.log(constraints);
+}
+
+function setDate () {
+  const dateField = document.querySelector("#pick-up-date");
+  if (constraints["setDate"])
+  {
+    dateField.value = constraints["date"];
+    dateField.setAttribute("disabled", true);
+  }
+  else {
+    dateField.value = getDate();
+    dateField.removeAttribute("disabled");
+  }
+}
+
+
 function calculateTotal(unit, quantity) {
   Total += unit * quantity;
 }
 
 function updateOrderList() {
   Total = 0;
-  console.log(order_list);
 
   if (order_list.length > 0) {
     order_tbl.innerHTML = `
@@ -118,11 +139,28 @@ function deleteItem(id) {
 }
 
 function populateMenu() {
-  for (let i = 0; i < menu.length; i++) {
+  menu_container.innerHTML= `<h2>Menu</h2>`;
+  let indexList = {};
+  try {
+    if (constraints["indexList"] != null)
+      indexList = constraints["indexList"];
+  } catch (error) {
+    console.warn(error.message); 
+  }
+  console.log(indexList);
+  
+  for (const index in indexList )
+  {
     const newItem = document.createElement("new-dish");
-    newItem.data = menu[i];
+    newItem.data = menu[indexList[index]];
     menu_container.appendChild(newItem);
   }
+
+  // for (let i = 0; i < menu.length; i++) {
+  //   const newItem = document.createElement("new-dish");
+  //   newItem.data = menu[i];
+  //   menu_container.appendChild(newItem);
+  // }
 }
 
 function bindDish() {
@@ -156,13 +194,12 @@ function getDate () {
 
 // Initialize
 function initApp() {
-  document.querySelector("#pick-up-date").value = getDate();
-
   populateMenu();
+  setDate();
   bindDish();
   updateOrderList();
 }
 
 window.addEventListener("load", initApp);
 
-export { order_list, Total, menu, clear };
+export { order_list, Total, menu, clear, setConstaints, initApp};
