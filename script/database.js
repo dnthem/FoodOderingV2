@@ -19,9 +19,11 @@ function fillOrderObject () {
     let result = {};
     result["userName"] = userName.value;
     result["userPhone"] = userPhone.value;
+    let order = {}
     order_list.forEach((item) => {
-        result[menu[item.id].id] = item.quantity;
+        order[menu[item.id].id] = item.quantity;
     })
+    result["order"] = order;
     result["pickUpTime"] = pickUpTime.value;
     result["total"] = "$" + Total;
     for (let i = 0; i < payment.length; i++) {
