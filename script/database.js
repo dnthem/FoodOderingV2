@@ -5,7 +5,6 @@ import { getDatabase, ref, set, child, get, update, remove, push } from "https:/
 
 const db = getDatabase(app);
 
-
 /**
 * Fill the order object with necessary data
 */

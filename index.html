@@ -2,59 +2,50 @@
 <html>
 
 <head>
-    <title>Login</title>
+    <title>Bánh Tráng Tí Điệu (BETA)</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link type="text/css" rel="stylesheet" href="style/login.css">
-    <script src="/script/login.js" type="module"></script>
-    <script src="script/firebase-config.js" type="module"></script>
+    <link rel="stylesheet" href="/style/style.css" />
+    <script src="/script/script.js" type="module"></script>
+    <script src="/script/items.js" type="module"></script>
+    <script src="/script/firebase-config.js" type="module"></script>
+    <script src="script/database.js" type="module"></script>
 </head>
 
 <body>
-    <div class="login-box">
-        <div class="lb-header">
-            <a href="#" class="active" id="login-box-link">Login</a>
-            <a href="#" id="signup-box-link">Sign Up</a>
-        </div>
-        <div class="social-login center">
-            <a class="hover hidden" id="login-w-fb">
-                <i class="fa fa-facebook fa-lg"></i>
-                Login in with facebook
-            </a>
-            <a class="hover" id="login-w-gg">
-                <i class="fa fa-google-plus fa-lg"></i>
-                log in with Google
-            </a>
-        </div>
-        <form class="email-login">
-            <div class="u-form-group">
-                <input type="email" placeholder="Email" />
-            </div>
-            <div class="u-form-group">
-                <input type="password" placeholder="Password" />
-            </div>
-            <div class="u-form-group">
-                <button id="login-w-email">Log in</button>
-                <button id="login-ano">Log in as anonymous</button>
-            </div>
-            <div class="u-form-group">
-                <a href="#" class="forgot-password">Forgot password?</a>
-            </div>
-        </form>
-        <form class="email-signup">
-            <div class="u-form-group">
-                <input type="email" placeholder="Email" />
-            </div>
-            <div class="u-form-group">
-                <input type="password" placeholder="Password" />
-            </div>
-            <div class="u-form-group">
-                <input type="password" placeholder="Confirm Password" />
-            </div>
-            <div class="u-form-group">
-                <button>Sign Up</button>
-            </div>
-        </form>
-    </div>
+    <header>
+        <h1><i class="fa fa-cutlery" aria-hidden="true">Bánh Tráng Tí Điệu</i></h1>
+    </header>
+    <main>
+        <section id="menu">
+            <h2>Menu</h2>
+        </section>
+        <section id="order-list">
+            <h2>Order(s)</h2>
+            <table id="order-tbl">
+            </table>
+            <p style="text-align: right;"></p>
+        </section>
+        <section id="submit-form">
+            <h2>Infomation</h2>
+            <p>Name (required) <input id="user-name" type="text" name="name"></p>
+            <p>Phone (required) <input id="user-phone" type="tel" name="phone"></p>
+            <p>Note <textarea id="user-note" rows="3" placeholder="Less spicy"></textarea>
+            <p>Order date: <input id="pick-up-date" type="date">
+            <p>Estimate pick-up time <input id="pick-up-time" type="time" name="time"></p>
+            <p>Payment
+                <span>
+                    <input type="radio" checked="true" name="payment" value="cash"> <label for="cash">cash</label>
+                    <input type="radio" name="payment" value="zelle"> <label for="zelle">zelle</label>
+                    <input type="radio" name="payment" value="vemmo"> <label for="vemmo">vemmo</label>
+                </span>
+            </p>
+            <button id="submit-btn">submit</button>
+        </section>
+        <footer style="background-color:dimgrey; text-align: center; padding: 10px 0">
+           Made by Them Dang © 2021 
+        </footer>
+    </main>
+   
 </body>
 
 </html>
