@@ -75,12 +75,17 @@ let Total = 0;
 
 let constraints = {};
 
-
+/**
+ * This functions is called when new constraints are applied and then set new constraints
+ * @param {Object} val contain constraints from database
+ */
 function setConstaints (val) {
   constraints = val;
-  console.log(constraints);
 }
 
+/**
+ * Set order date if it is set in contraints
+ */
 function setDate () {
   const dateField = document.querySelector("#pick-up-date");
   if (constraints["setDate"])
@@ -94,11 +99,18 @@ function setDate () {
   }
 }
 
-
+/**
+ * Calculate total price of order
+ * @param {int} unit 
+ * @param {int} quantity 
+ */
 function calculateTotal(unit, quantity) {
   Total += unit * quantity;
 }
 
+/**
+ * Update order List
+ */
 function updateOrderList() {
   Total = 0;
 
@@ -141,12 +153,18 @@ function updateOrderList() {
   }
 }
 
+/**
+ * bind remove event for items in order
+ */
 function bindEvent(td4, index) {
   td4.addEventListener("click", () => {
     deleteItem(index);
   });
 }
 
+/**
+ * Add items to order functionality
+ */
 function addItem(target) {
   let id = target.name;
   let qty = target.previousElementSibling;
@@ -164,11 +182,16 @@ function addItem(target) {
   updateOrderList();
 }
 
+
 function deleteItem(id) {
   order_list.splice(id, 1); // Remove 1 item at 'id' position
   updateOrderList();
 }
 
+
+/**
+ * Populate menu based on contraints
+ */
 function populateMenu() {
   menu_container.innerHTML= `<h2>Menu</h2>`;
   let indexList = {};
@@ -178,7 +201,6 @@ function populateMenu() {
   } catch (error) {
     console.warn(error.message); 
   }
-  console.log(indexList);
   
   for (const index in indexList )
   {
@@ -194,6 +216,10 @@ function populateMenu() {
   // }
 }
 
+
+/**
+ * Bind event add items to order
+ */
 function bindDish() {
   document.querySelectorAll("#menu > new-dish").forEach((dish) => {
     dish.shadowRoot
@@ -204,6 +230,9 @@ function bindDish() {
   });
 }
 
+/**
+ * Clear input fields after user submitted order
+ */
 function clear() {
   order_list = [];
   Total = 0;
@@ -214,6 +243,10 @@ function clear() {
   updateOrderList();
 }
 
+/**
+ * get the current date
+ * @returns current date YYYY-MM-DD
+ */
 function getDate () {
   var today = new Date();
   var dd = String(today.getDate()).padStart(2, "0");
