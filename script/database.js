@@ -33,7 +33,7 @@ function fillOrderObject () {
     })
     result["order"] = order;
     result["pickUpTime"] = pickUpTime.value;
-    result["total"] = "$" + Total;
+    result["total"] = Total;
     for (let i = 0; i < payment.length; i++) {
         if (payment[i].checked) {
             result["payment"] =  payment[i].value;
