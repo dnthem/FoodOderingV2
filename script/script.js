@@ -67,6 +67,12 @@ const menu = [
       id: "XoiXaXiu",
       name: "Xôi Xá Xíu Lòng Gà Trứng Cút",
       price: 12,
+  },
+  {
+    index: 11,
+    id: "NemChua",
+    name: "Nem Chua Bò (1lb)",
+    price: 17
   }
 ];
 
