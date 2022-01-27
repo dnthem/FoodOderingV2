@@ -91,7 +91,7 @@ const menu = [
     id: "SuaBap",
     name: "Sữa Bắp",
     price: 7,
-  },
+  }
 ];
 
 let order_list = []; // Create empty oder_list arr
