@@ -21,7 +21,8 @@
 
 body {
   margin: 0;
-  background: #eee url(/img/background.jpg) 50% 35%/cover padding-box padding-box local;
+  background: url(/img/cachep.jpg) 50% 35%/cover padding-box padding-box local;
+  background-repeat: repeat-y;
   font-family: 'Open Sans', sans-serif;
   font-size: 14px;
   line-height: 21px;
